@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  wqcom
 //
-//  Created by 진용호 on 2017. 8. 29..
+//  Created by 진태우 on 2017. 8. 29..
 //  Copyright © 2017년 jjlee. All rights reserved.
 //
 

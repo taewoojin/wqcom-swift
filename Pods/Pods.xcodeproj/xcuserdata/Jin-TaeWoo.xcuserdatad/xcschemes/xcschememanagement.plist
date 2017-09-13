@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>ESPullToRefresh-ESPullToRefresh.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ESPullToRefresh.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-wqcom.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SpringIndicator.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>10F0C3C80828CC88CE8154B17E6E0B8F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>595AD23255E06368CDCC67128A18927F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>617696639ED674D46C7D3AD3EBDD8C1F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>83D04EDAE5838FE3657C87DD12181688</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

@@ -1,0 +1,15 @@
+PODS:
+  - ESPullToRefresh (2.6)
+  - SpringIndicator (1.4.1)
+
+DEPENDENCIES:
+  - ESPullToRefresh
+  - SpringIndicator
+
+SPEC CHECKSUMS:
+  ESPullToRefresh: 85f4990acf87f78c6a1466bbbee7a75d7de24db9
+  SpringIndicator: d2be83cf7dbab52d91d378a5d3a267187b4959e5
+
+PODFILE CHECKSUM: 2b874037754c84309f3f73fab70b6d3f2c302acd
+
+COCOAPODS: 1.1.1

@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6ON-gf-Hap">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Web View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="webView" id="BYZ-38-t0r" customClass="WebViewController" customModule="wqcom" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +21,143 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jHP-du-r2s">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ddu-gb-wDJ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="wcx-F6-MMg"/>
+                                </constraints>
+                            </view>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZXE-3h-kIk">
+                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="GCc-RC-ubZ"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem image="toolbar_icon_back" id="6Vs-k8-XN3">
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="clickBackButton:" destination="BYZ-38-t0r" id="cTB-yE-Rj6"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem image="toolbar_icon_forward" id="s3q-PC-a5p">
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="321-vz-mdN"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jHP-du-r2s" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="0Gw-an-tY0"/>
+                            <constraint firstItem="Ddu-gb-wDJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="7lP-C3-8ip"/>
+                            <constraint firstItem="ZXE-3h-kIk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="CFi-cf-pb1"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZXE-3h-kIk" secondAttribute="bottom" id="afZ-Nq-q5U"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jHP-du-r2s" secondAttribute="trailing" constant="-16" id="dj7-Uq-HRN"/>
+                            <constraint firstItem="jHP-du-r2s" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="kdY-mH-cc3"/>
+                            <constraint firstItem="ZXE-3h-kIk" firstAttribute="top" secondItem="jHP-du-r2s" secondAttribute="bottom" id="qlb-b5-cqM"/>
+                            <constraint firstAttribute="trailing" secondItem="ZXE-3h-kIk" secondAttribute="trailing" id="uXq-SA-tBb"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Era-kH-rbt"/>
+                    <connections>
+                        <outlet property="backButton" destination="6Vs-k8-XN3" id="8tX-iJ-EHa"/>
+                        <outlet property="flexibleSpace" destination="321-vz-mdN" id="Ldi-MH-xCm"/>
+                        <outlet property="forwardButton" destination="s3q-PC-a5p" id="EPW-Te-7c1"/>
+                        <outlet property="toolbar" destination="ZXE-3h-kIk" id="tpD-5a-5YB"/>
+                        <outlet property="toolbarHeightConstraint" destination="GCc-RC-ubZ" id="aRe-9o-bND"/>
+                        <outlet property="topView" destination="Ddu-gb-wDJ" id="uqZ-9P-TFd"/>
+                        <outlet property="webView" destination="jHP-du-r2s" id="ehF-yi-jWe"/>
+                        <segue destination="lWg-cY-zAS" kind="presentation" identifier="SimpleWebViewSegue" id="V3Q-GW-28v"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1128.8" y="138.98050974512745"/>
+        </scene>
+        <!--Simple Web View Controller-->
+        <scene sceneID="S9O-8g-615">
+            <objects>
+                <viewController id="lWg-cY-zAS" customClass="SimpleWebViewController" customModule="wqcom" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mVM-Tv-QSc"/>
+                        <viewControllerLayoutGuide type="bottom" id="o1J-Dm-cKl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="p44-C5-vhT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6qh-pA-PxW">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YRC-gK-Tq9">
+                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
+                                <subviews>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yPb-og-yJK">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="49" id="fSO-61-MJd"/>
+                                        </constraints>
+                                        <items>
+                                            <barButtonItem image="toolbar_icon_back" id="vh5-cs-VHT">
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </barButtonItem>
+                                            <barButtonItem image="toolbar_icon_forward" id="tKh-nP-C5z">
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </barButtonItem>
+                                        </items>
+                                    </toolbar>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6qh-pA-PxW" firstAttribute="top" secondItem="mVM-Tv-QSc" secondAttribute="bottom" id="5Jr-bI-Kzv"/>
+                            <constraint firstItem="YRC-gK-Tq9" firstAttribute="leading" secondItem="p44-C5-vhT" secondAttribute="leading" id="8FP-tj-7xA"/>
+                            <constraint firstAttribute="bottom" secondItem="YRC-gK-Tq9" secondAttribute="bottom" id="ABf-ZF-hGk"/>
+                            <constraint firstItem="6qh-pA-PxW" firstAttribute="leading" secondItem="p44-C5-vhT" secondAttribute="leading" id="LSt-m7-9lY"/>
+                            <constraint firstAttribute="trailing" secondItem="YRC-gK-Tq9" secondAttribute="trailing" id="XIG-iq-rAx"/>
+                            <constraint firstAttribute="trailing" secondItem="6qh-pA-PxW" secondAttribute="trailing" id="arg-Qo-fGG"/>
+                            <constraint firstItem="YRC-gK-Tq9" firstAttribute="top" secondItem="6qh-pA-PxW" secondAttribute="bottom" id="mQ6-hW-6HV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="goBackButton" destination="vh5-cs-VHT" id="uSP-AC-bBF"/>
+                        <outlet property="goForwardButton" destination="tKh-nP-C5z" id="M9g-ah-KDT"/>
+                        <outlet property="webView" destination="6qh-pA-PxW" id="OcO-13-1Os"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8d1-rU-nsZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2126" y="139"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="WxF-Yx-XbE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="6ON-gf-Hap" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4Vj-bg-Dja">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="rqG-KO-g8T"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="veE-Qw-lyy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="141.59999999999999" y="138.98050974512745"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="toolbar_icon_back" width="33" height="33"/>
+        <image name="toolbar_icon_forward" width="33" height="33"/>
+    </resources>
 </document>

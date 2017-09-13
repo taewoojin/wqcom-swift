@@ -7,15 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DEA90EAB32CA852F169D6C2C /* Pods_wqcom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B27D3C514505AF282CE340E /* Pods_wqcom.framework */; };
+		FC337D191F5FA0810095F319 /* DeviceUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC337D181F5FA0800095F319 /* DeviceUtils.swift */; };
 		FCC4D23D1F5520F800D0A14B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC4D23C1F5520F800D0A14B /* AppDelegate.swift */; };
 		FCC4D23F1F5520F800D0A14B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC4D23E1F5520F800D0A14B /* ViewController.swift */; };
 		FCC4D2421F5520F800D0A14B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCC4D2401F5520F800D0A14B /* Main.storyboard */; };
 		FCC4D2451F5520F800D0A14B /* wqcom.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FCC4D2431F5520F800D0A14B /* wqcom.xcdatamodeld */; };
 		FCC4D2471F5520F800D0A14B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCC4D2461F5520F800D0A14B /* Assets.xcassets */; };
 		FCC4D24A1F5520F800D0A14B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCC4D2481F5520F800D0A14B /* LaunchScreen.storyboard */; };
+		FCC4D2521F55222B00D0A14B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC4D2511F55222B00D0A14B /* Constants.swift */; };
+		FCC4D2541F55242A00D0A14B /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC4D2531F55242A00D0A14B /* WebViewController.swift */; };
+		FCC9A4441F611B5C00D581C5 /* SimpleWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC9A4431F611B5C00D581C5 /* SimpleWebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5300B86EFA9E81CEF85E1BB5 /* Pods-wqcom.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wqcom.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wqcom/Pods-wqcom.debug.xcconfig"; sourceTree = "<group>"; };
+		7B27D3C514505AF282CE340E /* Pods_wqcom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wqcom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C03200E4ED4504292AFAA20A /* Pods-wqcom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wqcom.release.xcconfig"; path = "Pods/Target Support Files/Pods-wqcom/Pods-wqcom.release.xcconfig"; sourceTree = "<group>"; };
+		FC337D181F5FA0800095F319 /* DeviceUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceUtils.swift; sourceTree = "<group>"; };
 		FCC4D2391F5520F800D0A14B /* wqcom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wqcom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCC4D23C1F5520F800D0A14B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCC4D23E1F5520F800D0A14B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +33,9 @@
 		FCC4D2461F5520F800D0A14B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FCC4D2491F5520F800D0A14B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FCC4D24B1F5520F800D0A14B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCC4D2511F55222B00D0A14B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FCC4D2531F55242A00D0A14B /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		FCC9A4431F611B5C00D581C5 /* SimpleWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleWebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +43,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEA90EAB32CA852F169D6C2C /* Pods_wqcom.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6D297F7609BB1B7C89D75AAD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7B27D3C514505AF282CE340E /* Pods_wqcom.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7274ADF84D01E4468BE5F1A1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5300B86EFA9E81CEF85E1BB5 /* Pods-wqcom.debug.xcconfig */,
+				C03200E4ED4504292AFAA20A /* Pods-wqcom.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		FCC4D2301F5520F800D0A14B = {
 			isa = PBXGroup;
 			children = (
 				FCC4D23B1F5520F800D0A14B /* wqcom */,
 				FCC4D23A1F5520F800D0A14B /* Products */,
+				7274ADF84D01E4468BE5F1A1 /* Pods */,
+				6D297F7609BB1B7C89D75AAD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,10 +91,14 @@
 				FCC4D23C1F5520F800D0A14B /* AppDelegate.swift */,
 				FCC4D23E1F5520F800D0A14B /* ViewController.swift */,
 				FCC4D2401F5520F800D0A14B /* Main.storyboard */,
+				FC337D181F5FA0800095F319 /* DeviceUtils.swift */,
+				FCC4D2531F55242A00D0A14B /* WebViewController.swift */,
+				FCC4D2511F55222B00D0A14B /* Constants.swift */,
 				FCC4D2461F5520F800D0A14B /* Assets.xcassets */,
 				FCC4D2481F5520F800D0A14B /* LaunchScreen.storyboard */,
 				FCC4D24B1F5520F800D0A14B /* Info.plist */,
 				FCC4D2431F5520F800D0A14B /* wqcom.xcdatamodeld */,
+				FCC9A4431F611B5C00D581C5 /* SimpleWebViewController.swift */,
 			);
 			path = wqcom;
 			sourceTree = "<group>";
@@ -74,9 +110,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FCC4D24E1F5520F800D0A14B /* Build configuration list for PBXNativeTarget "wqcom" */;
 			buildPhases = (
+				07FB1BFE00941A7E41FB142A /* [CP] Check Pods Manifest.lock */,
 				FCC4D2351F5520F800D0A14B /* Sources */,
 				FCC4D2361F5520F800D0A14B /* Frameworks */,
 				FCC4D2371F5520F800D0A14B /* Resources */,
+				7CB939BC8DD9C586160E921F /* [CP] Embed Pods Frameworks */,
+				5894EECDD2C0B6AC987B4D94 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -135,14 +174,66 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		07FB1BFE00941A7E41FB142A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5894EECDD2C0B6AC987B4D94 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-wqcom/Pods-wqcom-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7CB939BC8DD9C586160E921F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-wqcom/Pods-wqcom-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FCC4D2351F5520F800D0A14B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCC9A4441F611B5C00D581C5 /* SimpleWebViewController.swift in Sources */,
 				FCC4D23F1F5520F800D0A14B /* ViewController.swift in Sources */,
+				FC337D191F5FA0810095F319 /* DeviceUtils.swift in Sources */,
 				FCC4D2451F5520F800D0A14B /* wqcom.xcdatamodeld in Sources */,
 				FCC4D23D1F5520F800D0A14B /* AppDelegate.swift in Sources */,
+				FCC4D2541F55242A00D0A14B /* WebViewController.swift in Sources */,
+				FCC4D2521F55222B00D0A14B /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,26 +354,32 @@
 		};
 		FCC4D24F1F5520F800D0A14B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5300B86EFA9E81CEF85E1BB5 /* Pods-wqcom.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = F2PQWDVT9F;
 				INFOPLIST_FILE = wqcom/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jjlee.wqcom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		FCC4D2501F5520F800D0A14B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C03200E4ED4504292AFAA20A /* Pods-wqcom.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = F2PQWDVT9F;
 				INFOPLIST_FILE = wqcom/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jjlee.wqcom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -306,6 +403,7 @@
 				FCC4D2501F5520F800D0A14B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
