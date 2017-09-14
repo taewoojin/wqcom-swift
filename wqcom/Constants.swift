@@ -12,7 +12,7 @@ import UIKit
 
 struct Url {
     
-    static let Base                   = "http://10.130.106.16:8080/wqcom/new-blogger"
+    static let Base                   = "http://10.130.107.43:8080/wqcom/"
 //    static let Base                   = "http://company.wedqueen.com"
     
     static let Login                    = "\(Base)/login"
