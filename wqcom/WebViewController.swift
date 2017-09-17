@@ -50,7 +50,6 @@ class WebViewController: UIViewController, UIWebViewDelegate {
         
         webView.delegate = self
 
-
         // 첫 번째 navigationController면 toolBar를 숨기고 그렇지 않으면 보여준다.
         let count = (navigationController?.viewControllers.count)!
         if count <= 1 {
@@ -78,9 +77,8 @@ class WebViewController: UIViewController, UIWebViewDelegate {
             
         }
         
-        
-        initPageRefresh()
         loadRequest()
+        initPageRefresh()
         
     }
     
@@ -131,7 +129,9 @@ class WebViewController: UIViewController, UIWebViewDelegate {
     
     func initPageRefresh() {
         
-        let fakeTopView = UIView(frame: CGRect(x: 0, y: -ScreenSize.SCREEN_HEIGHT, width: ScreenSize.SCREEN_HEIGHT, height: ScreenSize.SCREEN_HEIGHT))
+        print("ScreenSize.SCREEN_HEIGHT=======\(ScreenSize.SCREEN_HEIGHT)")
+        
+        let fakeTopView = UIView(frame: CGRect(x: 0, y: -ScreenSize.SCREEN_HEIGHT, width: ScreenSize.SCREEN_WIDTH, height: ScreenSize.SCREEN_HEIGHT))
         fakeTopView.backgroundColor = UIColor(red:0.20, green:0.78, blue:0.53, alpha:1.0)
         
         webView!.scrollView.addSubview(fakeTopView)
@@ -154,6 +154,13 @@ class WebViewController: UIViewController, UIWebViewDelegate {
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
         refreshControl.endRefreshing()
+        
+        let count = (navigationController?.viewControllers.count)!
+        
+        print("count=========\(count)")
+        if count >= 2 {
+            webView.stringByEvaluatingJavaScript(from: "commonFunction.hideHeader('header.header')")
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -170,8 +177,8 @@ class WebViewController: UIViewController, UIWebViewDelegate {
 
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         
-        let count = (navigationController?.viewControllers.count)!
-        print("count=========\(count)")
+//        let count = (navigationController?.viewControllers.count)!
+//        print("count=========\(count)")
         
         // 처음으로 load 하거나 reload
         if isFirst {
@@ -181,10 +188,35 @@ class WebViewController: UIViewController, UIWebViewDelegate {
         
         let requestUrl = (request.url?.absoluteString)!
         
-        if request.url?.scheme == "jscall" {
+        // root
+//        if requestUrl == Url.Base {
+//            navigationController!.popToRootViewController(animated: true)
+//            return false
+//        }
+        if (requestUrl == Url.Base
+            || requestUrl == "\(Url.Base)/"
+            || requestUrl.hasPrefix(Url.Survey)
+            || requestUrl == Url.Inquiry
+            || requestUrl.hasPrefix(Url.Payment)
+            || requestUrl == Url.Review
+            || requestUrl.hasPrefix(Url.Setting)) {
+            return true
+        }
+        else if (requestUrl == Url.SignIn
+            || requestUrl == Url.NewBlogger) {
+//            navigationController!.popToRootViewController(animated: true)
+            return true
+        }
+            
+        else if request.url?.scheme == "jscall" {
             return false
         }
         else if requestUrl == "about:blank" {
+            return false
+        }
+        // refresh
+        else if requestUrl == Url.Refresh {
+            reload()
             return false
         }
         else if !requestUrl.hasPrefix(Url.Base) {
@@ -200,6 +232,13 @@ class WebViewController: UIViewController, UIWebViewDelegate {
         }
         
         return false
+    }
+    
+    func reload() {
+        if !webView.isLoading {
+//            addLoadingIndicator()
+            loadRequest()
+        }
     }
     
     func addWebView(_ url: URL?) {

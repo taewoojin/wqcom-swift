@@ -12,16 +12,25 @@ import UIKit
 
 struct Url {
     
-    static let Base                   = "http://10.130.106.16:8080/wqcom/new-blogger"
+    static let Base                   = "http://172.20.10.3:8080/wqcom"
 //    static let Base                   = "http://company.wedqueen.com"
+    
+    static let Survey                   = "\(Base)/survey/company"
+    static let Inquiry                  = "\(Base)/inquiry"
+    static let Payment                  = "\(Base)/payment/seller/company"
+    static let Review                   = "\(Base)/review"
+    static let Setting                  = "\(Base)/company/setting"
+    static let SignIn                   = "\(Base)/signin"
+    static let NewBlogger               = "\(Base)/new-blogger"
     
     static let Login                    = "\(Base)/login"
     static let Feed                     = "\(Base)/feed"
     static let ContentFeed              = "\(Base)/user/timeline"
     static let WeddingTalk              = "\(Base)/weddingtalk"
-    static let CheckList                  = "\(Base)/user/checklist"
+    static let CheckList                = "\(Base)/user/checklist"
     static let PlanBook                 = "\(Base)/user/main"
     static let Noti                     = "\(Base)/noti"
+    static let Refresh                  = "\(Base)/refresh"
     
 }
 
