@@ -15,6 +15,7 @@ struct Url {
     static let Base                   = "http://172.20.10.3:8080/wqcom"
 //    static let Base                   = "http://company.wedqueen.com"
     
+    
     static let Survey                   = "\(Base)/survey/company"
     static let Inquiry                  = "\(Base)/inquiry"
     static let Payment                  = "\(Base)/payment/seller/company"
