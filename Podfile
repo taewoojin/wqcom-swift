@@ -6,7 +6,9 @@ target 'wqcom' do
 
   pod "SpringIndicator"
   pod "ESPullToRefresh"
-  
+  pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
+
   use_frameworks!
 
   # Pods for wqcom

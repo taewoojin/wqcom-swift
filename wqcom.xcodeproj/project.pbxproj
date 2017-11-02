@@ -8,7 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		DEA90EAB32CA852F169D6C2C /* Pods_wqcom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B27D3C514505AF282CE340E /* Pods_wqcom.framework */; };
+		FC052CF71F78D8DE0072D2AB /* GDWebViewController in Resources */ = {isa = PBXBuildFile; fileRef = FC052CF61F78D8DE0072D2AB /* GDWebViewController */; };
+		FC052CFC1F78DB5A0072D2AB /* GDWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC052CFA1F78DB5A0072D2AB /* GDWebViewController.swift */; };
+		FC052CFD1F78DB5A0072D2AB /* GDWebViewNavigationToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC052CFB1F78DB5A0072D2AB /* GDWebViewNavigationToolbar.swift */; };
+		FC1E83D91F78D04C00F95589 /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1E83D81F78D04C00F95589 /* WKWebViewController.swift */; };
 		FC337D191F5FA0810095F319 /* DeviceUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC337D181F5FA0800095F319 /* DeviceUtils.swift */; };
+		FC7B5AE81F6FA262003AB327 /* PushKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC7B5AE71F6FA262003AB327 /* PushKit.framework */; };
+		FC7B5AEA1F6FA26A003AB327 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC7B5AE91F6FA26A003AB327 /* UserNotifications.framework */; };
+		FC8BC7AF1F7289750085BF70 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8BC7AE1F7289750085BF70 /* TestViewController.swift */; };
+		FC95B8E61F6F81DB00E2D162 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC95B8E51F6F81DB00E2D162 /* GoogleService-Info.plist */; };
 		FCC4D23D1F5520F800D0A14B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC4D23C1F5520F800D0A14B /* AppDelegate.swift */; };
 		FCC4D23F1F5520F800D0A14B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC4D23E1F5520F800D0A14B /* ViewController.swift */; };
 		FCC4D2421F5520F800D0A14B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCC4D2401F5520F800D0A14B /* Main.storyboard */; };
@@ -24,7 +32,16 @@
 		5300B86EFA9E81CEF85E1BB5 /* Pods-wqcom.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wqcom.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wqcom/Pods-wqcom.debug.xcconfig"; sourceTree = "<group>"; };
 		7B27D3C514505AF282CE340E /* Pods_wqcom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wqcom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C03200E4ED4504292AFAA20A /* Pods-wqcom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wqcom.release.xcconfig"; path = "Pods/Target Support Files/Pods-wqcom/Pods-wqcom.release.xcconfig"; sourceTree = "<group>"; };
+		FC052CF61F78D8DE0072D2AB /* GDWebViewController */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GDWebViewController; sourceTree = "<group>"; };
+		FC052CFA1F78DB5A0072D2AB /* GDWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GDWebViewController.swift; path = GDWebViewController/GDWebViewController.swift; sourceTree = "<group>"; };
+		FC052CFB1F78DB5A0072D2AB /* GDWebViewNavigationToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GDWebViewNavigationToolbar.swift; path = GDWebViewController/GDWebViewNavigationToolbar.swift; sourceTree = "<group>"; };
+		FC1E83D81F78D04C00F95589 /* WKWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKWebViewController.swift; sourceTree = "<group>"; };
 		FC337D181F5FA0800095F319 /* DeviceUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceUtils.swift; sourceTree = "<group>"; };
+		FC7B5AE61F6FA195003AB327 /* wqcom.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = wqcom.entitlements; sourceTree = "<group>"; };
+		FC7B5AE71F6FA262003AB327 /* PushKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PushKit.framework; path = System/Library/Frameworks/PushKit.framework; sourceTree = SDKROOT; };
+		FC7B5AE91F6FA26A003AB327 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		FC8BC7AE1F7289750085BF70 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		FC95B8E51F6F81DB00E2D162 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FCC4D2391F5520F800D0A14B /* wqcom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wqcom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCC4D23C1F5520F800D0A14B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCC4D23E1F5520F800D0A14B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +60,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC7B5AEA1F6FA26A003AB327 /* UserNotifications.framework in Frameworks */,
+				FC7B5AE81F6FA262003AB327 /* PushKit.framework in Frameworks */,
 				DEA90EAB32CA852F169D6C2C /* Pods_wqcom.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,6 +72,8 @@
 		6D297F7609BB1B7C89D75AAD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FC7B5AE91F6FA26A003AB327 /* UserNotifications.framework */,
+				FC7B5AE71F6FA262003AB327 /* PushKit.framework */,
 				7B27D3C514505AF282CE340E /* Pods_wqcom.framework */,
 			);
 			name = Frameworks;
@@ -67,9 +88,20 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		FC052CF51F78D8A40072D2AB /* External */ = {
+			isa = PBXGroup;
+			children = (
+				FC052CF61F78D8DE0072D2AB /* GDWebViewController */,
+			);
+			name = External;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		FCC4D2301F5520F800D0A14B = {
 			isa = PBXGroup;
 			children = (
+				FC052CFA1F78DB5A0072D2AB /* GDWebViewController.swift */,
+				FC052CFB1F78DB5A0072D2AB /* GDWebViewNavigationToolbar.swift */,
 				FCC4D23B1F5520F800D0A14B /* wqcom */,
 				FCC4D23A1F5520F800D0A14B /* Products */,
 				7274ADF84D01E4468BE5F1A1 /* Pods */,
@@ -88,17 +120,22 @@
 		FCC4D23B1F5520F800D0A14B /* wqcom */ = {
 			isa = PBXGroup;
 			children = (
+				FC052CF51F78D8A40072D2AB /* External */,
+				FC7B5AE61F6FA195003AB327 /* wqcom.entitlements */,
 				FCC4D23C1F5520F800D0A14B /* AppDelegate.swift */,
 				FCC4D23E1F5520F800D0A14B /* ViewController.swift */,
 				FCC4D2401F5520F800D0A14B /* Main.storyboard */,
+				FC8BC7AE1F7289750085BF70 /* TestViewController.swift */,
 				FC337D181F5FA0800095F319 /* DeviceUtils.swift */,
+				FCC9A4431F611B5C00D581C5 /* SimpleWebViewController.swift */,
 				FCC4D2531F55242A00D0A14B /* WebViewController.swift */,
+				FC1E83D81F78D04C00F95589 /* WKWebViewController.swift */,
 				FCC4D2511F55222B00D0A14B /* Constants.swift */,
 				FCC4D2461F5520F800D0A14B /* Assets.xcassets */,
 				FCC4D2481F5520F800D0A14B /* LaunchScreen.storyboard */,
 				FCC4D24B1F5520F800D0A14B /* Info.plist */,
+				FC95B8E51F6F81DB00E2D162 /* GoogleService-Info.plist */,
 				FCC4D2431F5520F800D0A14B /* wqcom.xcdatamodeld */,
-				FCC9A4431F611B5C00D581C5 /* SimpleWebViewController.swift */,
 			);
 			path = wqcom;
 			sourceTree = "<group>";
@@ -139,7 +176,15 @@
 					FCC4D2381F5520F800D0A14B = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = F2PQWDVT9F;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -167,6 +212,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCC4D24A1F5520F800D0A14B /* LaunchScreen.storyboard in Resources */,
+				FC95B8E61F6F81DB00E2D162 /* GoogleService-Info.plist in Resources */,
+				FC052CF71F78D8DE0072D2AB /* GDWebViewController in Resources */,
 				FCC4D2471F5520F800D0A14B /* Assets.xcassets in Resources */,
 				FCC4D2421F5520F800D0A14B /* Main.storyboard in Resources */,
 			);
@@ -227,8 +274,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC052CFC1F78DB5A0072D2AB /* GDWebViewController.swift in Sources */,
+				FC052CFD1F78DB5A0072D2AB /* GDWebViewNavigationToolbar.swift in Sources */,
 				FCC9A4441F611B5C00D581C5 /* SimpleWebViewController.swift in Sources */,
 				FCC4D23F1F5520F800D0A14B /* ViewController.swift in Sources */,
+				FC8BC7AF1F7289750085BF70 /* TestViewController.swift in Sources */,
+				FC1E83D91F78D04C00F95589 /* WKWebViewController.swift in Sources */,
 				FC337D191F5FA0810095F319 /* DeviceUtils.swift in Sources */,
 				FCC4D2451F5520F800D0A14B /* wqcom.xcdatamodeld in Sources */,
 				FCC4D23D1F5520F800D0A14B /* AppDelegate.swift in Sources */,
@@ -281,7 +332,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jason   Lee (83QAARW67Z)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -300,7 +351,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -331,7 +382,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jason   Lee (F2PQWDVT9F)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -344,7 +395,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -357,14 +408,18 @@
 			baseConfigurationReference = 5300B86EFA9E81CEF85E1BB5 /* Pods-wqcom.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = wqcom/wqcom.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = F2PQWDVT9F;
 				INFOPLIST_FILE = wqcom/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jjlee.wqcom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "9a4b65f5-da98-4415-895e-bc6db0476b50";
+				PROVISIONING_PROFILE_SPECIFIER = wqcom_development;
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -373,14 +428,18 @@
 			baseConfigurationReference = C03200E4ED4504292AFAA20A /* Pods-wqcom.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = wqcom/wqcom.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = F2PQWDVT9F;
 				INFOPLIST_FILE = wqcom/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jjlee.wqcom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "84481dfc-f89e-4002-8789-3573393e9e52";
+				PROVISIONING_PROFILE_SPECIFIER = wqcom_production;
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

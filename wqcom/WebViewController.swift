@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import WebKit
 import SpringIndicator
 import ESPullToRefresh
 
-class WebViewController: UIViewController, UIWebViewDelegate {
+class WebViewController: UIViewController, UIWebViewDelegate, WKNavigationDelegate, WKUIDelegate {
 
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var topView: UIView!
@@ -42,13 +43,15 @@ class WebViewController: UIViewController, UIWebViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        webView.delegate = self
+        
+        self.automaticallyAdjustsScrollViewInsets = false
         topView.backgroundColor = .white
         
         // 상단 누르면 스크롤 to top
 //        topView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(WebViewController.respondToTapGesture(_:))))
         
-        webView.delegate = self
+        
 
         // 첫 번째 navigationController면 toolBar를 숨기고 그렇지 않으면 보여준다.
         let count = (navigationController?.viewControllers.count)!
@@ -77,8 +80,9 @@ class WebViewController: UIViewController, UIWebViewDelegate {
             
         }
         
-        loadRequest()
         initPageRefresh()
+        loadRequest()
+        
         
     }
     
@@ -87,10 +91,10 @@ class WebViewController: UIViewController, UIWebViewDelegate {
         if let count = navigationController?.viewControllers.count {
             if count <= 1 {
                 return [flexibleSpace!]
-            } else if count == 2 {
-                return [backButton!, flexibleSpace!]
+//            } else if count == 2 {
+//                return [backButton!, flexibleSpace!]
             } else {
-                return [backButton!, forwardButton!, flexibleSpace!]
+                return [backButton!, flexibleSpace!]
             }
         } else {
             return [flexibleSpace!]
@@ -132,7 +136,7 @@ class WebViewController: UIViewController, UIWebViewDelegate {
         print("ScreenSize.SCREEN_HEIGHT=======\(ScreenSize.SCREEN_HEIGHT)")
         
         let fakeTopView = UIView(frame: CGRect(x: 0, y: -ScreenSize.SCREEN_HEIGHT, width: ScreenSize.SCREEN_WIDTH, height: ScreenSize.SCREEN_HEIGHT))
-        fakeTopView.backgroundColor = UIColor(red:0.20, green:0.78, blue:0.53, alpha:1.0)
+        fakeTopView.backgroundColor = UIColor(red:0.75, green:0.70, blue:0.55, alpha:1.0)
         
         webView!.scrollView.addSubview(fakeTopView)
         
@@ -154,10 +158,8 @@ class WebViewController: UIViewController, UIWebViewDelegate {
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
         refreshControl.endRefreshing()
-        
         let count = (navigationController?.viewControllers.count)!
         
-        print("count=========\(count)")
         if count >= 2 {
             webView.stringByEvaluatingJavaScript(from: "commonFunction.hideHeader('header.header')")
         }
@@ -175,10 +177,9 @@ class WebViewController: UIViewController, UIWebViewDelegate {
         }
     }
 
+    
+    
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        
-//        let count = (navigationController?.viewControllers.count)!
-//        print("count=========\(count)")
         
         // 처음으로 load 하거나 reload
         if isFirst {
@@ -193,13 +194,18 @@ class WebViewController: UIViewController, UIWebViewDelegate {
 //            navigationController!.popToRootViewController(animated: true)
 //            return false
 //        }
-        if (requestUrl == Url.Base
+        
+        if (requestUrl.range(of: "/edit") != nil
+            || requestUrl.range(of: "/setting") != nil){
+            return true
+        }
+        else if (requestUrl == Url.Base
             || requestUrl == "\(Url.Base)/"
             || requestUrl.hasPrefix(Url.Survey)
             || requestUrl == Url.Inquiry
             || requestUrl.hasPrefix(Url.Payment)
             || requestUrl == Url.Review
-            || requestUrl.hasPrefix(Url.Setting)) {
+            || requestUrl.hasPrefix("\(Url.Base)/company/")) {
             return true
         }
         else if (requestUrl == Url.SignIn
@@ -220,12 +226,16 @@ class WebViewController: UIViewController, UIWebViewDelegate {
             return false
         }
         else if !requestUrl.hasPrefix(Url.Base) {
-            performSegue(withIdentifier: "SimpleWebViewSegue", sender: requestUrl)
+            addWebView(request.url)
+//            performSegue(withIdentifier: "SimpleWebViewSegue", sender: requestUrl)
             return false
         }
         
+        print("canGoBack;;;;;\(webView.canGoBack)")
+        
         if !isFirst {
             print("request.url====\(String(describing: request.url))")
+//            addWKWebView(request.url)
             addWebView(request.url)
 //            performSegue(withIdentifier: "SimpleWebViewSegue", sender: requestUrl)
             return false
@@ -241,6 +251,20 @@ class WebViewController: UIViewController, UIWebViewDelegate {
         }
     }
     
+    func addWKWebView(_ url: URL?) {
+        let webView = WKWebViewController()
+        webView.url = url
+        self.navigationController?.pushViewController(webView, animated: true)
+        
+//        let webView = WKWebView(frame: self.view.frame)
+//        webView.navigationDelegate = self
+//        let request = NSURLRequest(url: url!)
+        
+//        webView.load(request as URLRequest)
+//        self.view.addSubview(webView)
+//        webView.allowsBackForwardNavigationGestures = true
+    }
+    
     func addWebView(_ url: URL?) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let webViewController = storyboard.instantiateViewController(withIdentifier: "webView") as! WebViewController
@@ -252,5 +276,11 @@ class WebViewController: UIViewController, UIWebViewDelegate {
     @IBAction func clickBackButton(_ sender: UIBarButtonItem) {
         self.navigationController!.popViewController(animated: true)
     }
+    
+    
+//    override var preferredStatusBarStyle: UIStatusBarStyle {
+//        return .lightContent
+//    }
+    
 }
 

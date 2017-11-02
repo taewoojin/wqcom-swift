@@ -14,7 +14,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>GoogleToolboxForMac.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-wqcom.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Protobuf.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -32,17 +42,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>595AD23255E06368CDCC67128A18927F</key>
+		<key>28C73E2C0CD36570DD71D69448B58594</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>617696639ED674D46C7D3AD3EBDD8C1F</key>
+		<key>42A25B63B5DADF2B1D59DE8BA5A1358B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>83D04EDAE5838FE3657C87DD12181688</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C5B80060FE8C664DF08841000F41D515</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EAAF0E7CD31C7CDD60DCB0973627F892</key>
 		<dict>
 			<key>primary</key>
 			<true/>

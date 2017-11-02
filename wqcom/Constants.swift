@@ -9,18 +9,19 @@
 import Foundation
 import UIKit
 
-
 struct Url {
     
-    static let Base                   = "http://172.20.10.3:8080/wqcom"
+//    static let Base                   = "http://10.130.104.252:8080/wqcom"
 //    static let Base                   = "http://company.wedqueen.com"
-    
+    static let Base                   = "http://211.249.49.218"
     
     static let Survey                   = "\(Base)/survey/company"
     static let Inquiry                  = "\(Base)/inquiry"
     static let Payment                  = "\(Base)/payment/seller/company"
     static let Review                   = "\(Base)/review"
-    static let Setting                  = "\(Base)/company/setting"
+//    static let Setting                  = "\(Base)/company/setting"
+//    static let DirectorEdit             = "\(Base)/account/edit"
+//    static let PasswordEdit             = "\(Base)/account/edit/password"
     static let SignIn                   = "\(Base)/signin"
     static let NewBlogger               = "\(Base)/new-blogger"
     
