@@ -188,7 +188,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FCC4D2341F5520F800D0A14B /* Build configuration list for PBXProject "wqcom" */;
+			buildConfigurationList = FCC4D2341F5520F800D0A14B /* Build configuration list for PBXProject "Wqcom" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -446,7 +446,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FCC4D2341F5520F800D0A14B /* Build configuration list for PBXProject "wqcom" */ = {
+		FCC4D2341F5520F800D0A14B /* Build configuration list for PBXProject "Wqcom" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FCC4D24C1F5520F800D0A14B /* Debug */,

@@ -13,7 +13,7 @@ import ESPullToRefresh
 
 class WebViewController: UIViewController, UIWebViewDelegate, WKNavigationDelegate, WKUIDelegate {
 
-    @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var toolbarHeightConstraint: NSLayoutConstraint!
@@ -23,6 +23,7 @@ class WebViewController: UIViewController, UIWebViewDelegate, WKNavigationDelega
     @IBOutlet weak var flexibleSpace: UIBarButtonItem!
     
     var url: URL? = URL(string: Url.Base)
+    var webView: WKWebView!
     
     // 오랫동안 요청이 안올 경우 refresh하기 위한 요청시각
     fileprivate var requestTime: Date = Date()
@@ -43,7 +44,6 @@ class WebViewController: UIViewController, UIWebViewDelegate, WKNavigationDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        webView.delegate = self
         
         self.automaticallyAdjustsScrollViewInsets = false
         topView.backgroundColor = .white
@@ -51,17 +51,21 @@ class WebViewController: UIViewController, UIWebViewDelegate, WKNavigationDelega
         // 상단 누르면 스크롤 to top
 //        topView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(WebViewController.respondToTapGesture(_:))))
         
-        
-
         // 첫 번째 navigationController면 toolBar를 숨기고 그렇지 않으면 보여준다.
         let count = (navigationController?.viewControllers.count)!
         if count <= 1 {
+            webView = WKWebView(frame: self.view.frame)
+            self.view.addSubview(webView)
+            
             webView?.scrollView.showsVerticalScrollIndicator = false
             
             toolbar.isHidden = true
             toolbarHeightConstraint.constant = 0.0
             
         } else {
+            webView = WKWebView(frame: self.containerView.frame)
+            self.containerView.addSubview(webView)
+            
             webView?.scrollView.showsVerticalScrollIndicator = true
             
             // toolbar의 default border 제거
@@ -79,6 +83,9 @@ class WebViewController: UIViewController, UIWebViewDelegate, WKNavigationDelega
             toolbar.setItems(getToolbarItems(), animated: false)
             
         }
+        
+        webView.uiDelegate = self
+        webView.navigationDelegate = self
         
         initPageRefresh()
         loadRequest()
@@ -118,16 +125,25 @@ class WebViewController: UIViewController, UIWebViewDelegate, WKNavigationDelega
             isFirst = true;
             requestTime = Date()
             var url = self.url!
-            if let currentUrl = webView.stringByEvaluatingJavaScript(from: "window.location.href"), currentUrl != "about:blank" {
-                url = URL(string: currentUrl)!
-            }
+
+            webView.evaluateJavaScript("window.location.href", completionHandler: {(result, error) in
+                if error == nil {
+                    if let currentUrl:String = result as? String, currentUrl != "about:blank" {
+                        url = URL(string: currentUrl)!
+                    }
+                }
+            })
+            
+//            if let currentUrl = webView.stringByEvaluatingJavaScript(from: "window.location.href"), currentUrl != "about:blank" {
+//                url = URL(string: currentUrl)!
+//            }
+            
             let request = NSMutableURLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 15)
             
             request.addValue(Device.DeviceType, forHTTPHeaderField: "deviceType")
 //            request.addValue(Device.AppVersion, forHTTPHeaderField: "version")
             
-            webView?.loadRequest(request as URLRequest)
-            
+            webView.load(request as URLRequest)
         }
     }
     
@@ -152,18 +168,27 @@ class WebViewController: UIViewController, UIWebViewDelegate, WKNavigationDelega
     }
     
     
-    func webViewDidStartLoad(_ webView: UIWebView) {
-        
-    }
+//    func webViewDidStartLoad(_ webView: UIWebView) {
+//
+//    }
     
-    func webViewDidFinishLoad(_ webView: UIWebView) {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         refreshControl.endRefreshing()
         let count = (navigationController?.viewControllers.count)!
         
         if count >= 2 {
-            webView.stringByEvaluatingJavaScript(from: "commonFunction.hideHeader('header.header')")
+            webView.evaluateJavaScript("commonFunction.hideHeader('header.header')", completionHandler: nil)
         }
     }
+    
+//    func webViewDidFinishLoad(_ webView: UIWebView) {
+//        refreshControl.endRefreshing()
+//        let count = (navigationController?.viewControllers.count)!
+//
+//        if count >= 2 {
+//            webView.stringByEvaluatingJavaScript(from: "commonFunction.hideHeader('header.header')")
+//        }
+//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let simpleWebViewController = segue.destination as? SimpleWebViewController {
@@ -177,27 +202,23 @@ class WebViewController: UIViewController, UIWebViewDelegate, WKNavigationDelega
         }
     }
 
-    
-    
-    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         // 처음으로 load 하거나 reload
         if isFirst {
             isFirst = false
-            return true
+            decisionHandler(WKNavigationActionPolicy.allow)
+            return
         }
         
-        let requestUrl = (request.url?.absoluteString)!
+        let request:URLRequest = navigationAction.request;
+        let requestUrl:String! = navigationAction.request.url?.absoluteString;
         
-        // root
-//        if requestUrl == Url.Base {
-//            navigationController!.popToRootViewController(animated: true)
-//            return false
-//        }
+//        let requestUrl = (request.url?.absoluteString)!
         
         if (requestUrl.range(of: "/edit") != nil
             || requestUrl.range(of: "/setting") != nil){
-            return true
+            decisionHandler(WKNavigationActionPolicy.allow)
+            return
         }
         else if (requestUrl == Url.Base
             || requestUrl == "\(Url.Base)/"
@@ -206,43 +227,115 @@ class WebViewController: UIViewController, UIWebViewDelegate, WKNavigationDelega
             || requestUrl.hasPrefix(Url.Payment)
             || requestUrl == Url.Review
             || requestUrl.hasPrefix("\(Url.Base)/company/")) {
-            return true
+            decisionHandler(WKNavigationActionPolicy.allow)
+            return
         }
         else if (requestUrl == Url.SignIn
             || requestUrl == Url.NewBlogger) {
-//            navigationController!.popToRootViewController(animated: true)
-            return true
+            //            navigationController!.popToRootViewController(animated: true)
+            decisionHandler(WKNavigationActionPolicy.allow)
+            return
         }
             
         else if request.url?.scheme == "jscall" {
-            return false
+            decisionHandler(WKNavigationActionPolicy.cancel)
+            return
         }
         else if requestUrl == "about:blank" {
-            return false
+            decisionHandler(WKNavigationActionPolicy.cancel)
+            return
         }
-        // refresh
+            // refresh
         else if requestUrl == Url.Refresh {
             reload()
-            return false
+            decisionHandler(WKNavigationActionPolicy.cancel)
+            return
         }
         else if !requestUrl.hasPrefix(Url.Base) {
             addWebView(request.url)
-//            performSegue(withIdentifier: "SimpleWebViewSegue", sender: requestUrl)
-            return false
+            // performSegue(withIdentifier: "SimpleWebViewSegue", sender: requestUrl)
+            decisionHandler(WKNavigationActionPolicy.cancel)
+            return
         }
         
         print("canGoBack;;;;;\(webView.canGoBack)")
         
         if !isFirst {
             print("request.url====\(String(describing: request.url))")
-//            addWKWebView(request.url)
+            // addWKWebView(request.url)
             addWebView(request.url)
-//            performSegue(withIdentifier: "SimpleWebViewSegue", sender: requestUrl)
-            return false
+            decisionHandler(WKNavigationActionPolicy.cancel)
+            return
         }
-        
-        return false
+     
+        decisionHandler(WKNavigationActionPolicy.cancel)
     }
+    
+    
+//    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+//
+//        // 처음으로 load 하거나 reload
+//        if isFirst {
+//            isFirst = false
+//            return true
+//        }
+//
+//        let requestUrl = (request.url?.absoluteString)!
+//
+//        // root
+////        if requestUrl == Url.Base {
+////            navigationController!.popToRootViewController(animated: true)
+////            return false
+////        }
+//
+//        if (requestUrl.range(of: "/edit") != nil
+//            || requestUrl.range(of: "/setting") != nil){
+//            return true
+//        }
+//        else if (requestUrl == Url.Base
+//            || requestUrl == "\(Url.Base)/"
+//            || requestUrl.hasPrefix(Url.Survey)
+//            || requestUrl == Url.Inquiry
+//            || requestUrl.hasPrefix(Url.Payment)
+//            || requestUrl == Url.Review
+//            || requestUrl.hasPrefix("\(Url.Base)/company/")) {
+//            return true
+//        }
+//        else if (requestUrl == Url.SignIn
+//            || requestUrl == Url.NewBlogger) {
+////            navigationController!.popToRootViewController(animated: true)
+//            return true
+//        }
+//
+//        else if request.url?.scheme == "jscall" {
+//            return false
+//        }
+//        else if requestUrl == "about:blank" {
+//            return false
+//        }
+//        // refresh
+//        else if requestUrl == Url.Refresh {
+//            reload()
+//            return false
+//        }
+//        else if !requestUrl.hasPrefix(Url.Base) {
+//            addWebView(request.url)
+////            performSegue(withIdentifier: "SimpleWebViewSegue", sender: requestUrl)
+//            return false
+//        }
+//
+//        print("canGoBack;;;;;\(webView.canGoBack)")
+//
+//        if !isFirst {
+//            print("request.url====\(String(describing: request.url))")
+////            addWKWebView(request.url)
+//            addWebView(request.url)
+////            performSegue(withIdentifier: "SimpleWebViewSegue", sender: requestUrl)
+//            return false
+//        }
+//
+//        return false
+//    }
     
     func reload() {
         if !webView.isLoading {

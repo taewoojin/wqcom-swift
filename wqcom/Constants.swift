@@ -11,9 +11,9 @@ import UIKit
 
 struct Url {
     
-//    static let Base                   = "http://10.130.104.252:8080/wqcom"
+    static let Base                   = "http://10.130.108.45:8080/wqcom"
 //    static let Base                   = "http://company.wedqueen.com"
-    static let Base                   = "http://211.249.49.218"
+//    static let Base                   = "http://211.249.49.218"
     
     static let Survey                   = "\(Base)/survey/company"
     static let Inquiry                  = "\(Base)/inquiry"
